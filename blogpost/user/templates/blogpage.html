@@ -6,7 +6,7 @@
 {% for blog in blogs %}
 <a href="{{blog.slug}}/">{{blog.title}}</a>By :  {{blog.user_name}}
 <br>
-{{blog.content | slice:75}}...
+{{blog.content | slice:75 | safe}}...
 <br>
 <br>
 {% endfor %}

@@ -1,11 +1,31 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Blog
+from .models import Blog, Profile
+from tinymce.widgets import TinyMCE
+
+
+
+class UserEditForm(forms.ModelForm):
+    
+    class Meta:
+        model = User
+        fields = ("first_name","last_name","email")
+
+class ProfileEditForm(forms.ModelForm):
+    
+    class Meta:
+        model = Profile
+        fields = ("image", "description")
+
 class BlogForm(forms.ModelForm):
+    
     class Meta:
         model = Blog
         fields = ['title', 'content']
+        
+
+
 class SignupForm(UserCreationForm):
     email = forms.EmailField()
     class Meta:

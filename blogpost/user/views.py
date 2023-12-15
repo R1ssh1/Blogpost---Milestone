@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Blog
+from .models import Blog, Profile
 from django.contrib.auth.models import User
 from django.template import loader
-from .forms import SignupForm, BlogForm
+from .forms import SignupForm, BlogForm, UserEditForm, ProfileEditForm
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -92,3 +92,16 @@ def delete_blog(request, id):
         'blog':blog
     }
     return render(request, 'blog_delete.html', context)
+
+@login_required
+def edit(request):
+    if request.method=='POST':
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=request.user.profile) 
+    return render(request, 'edit.html', {"user_form":user_form, "profile_form":profile_form})

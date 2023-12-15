@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
+from django.urls import reverse
+from tinymce.models import HTMLField
 # Create your models here.
 
 class Profile(models.Model):
@@ -12,7 +15,7 @@ class Profile(models.Model):
 class Blog(models.Model):
     serial_num = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
-    content = models.TextField()
+    content = HTMLField()
     slug = models.SlugField(max_length=150, unique=True, blank=True)
     time = models.DateTimeField(auto_now_add=True)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
@@ -31,3 +34,7 @@ class Blog(models.Model):
         if not self.slug:
             self.slug = self._get_unique_slug()
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("blogpost", args=[str(self.slug)])
+    

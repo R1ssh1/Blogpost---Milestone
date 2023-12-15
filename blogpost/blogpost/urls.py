@@ -33,8 +33,16 @@ urlpatterns = [
     path('profile/',user_views.profile, name='profile'),
     path('addblog/',user_views.CreateBlog.as_view(), name='createblog'),
     path('update/<int:id>/', user_views.update_blog, name='updateblog'),
-    path('delete/<int:id>', user_views.delete_blog, name='deleteblog')
-]
+    path('delete/<int:id>', user_views.delete_blog, name='deleteblog'),
+    path('change_password/', auth_views.PasswordChangeView.as_view(template_name="change_password_form.html"), name='change_password'),
+    path('change_password_done/', auth_views.PasswordChangeDoneView.as_view(template_name="change_password_done.html"), name="change_password_done"),
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name="password_reset_form.html"), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name="password_reset_done.html"), name="password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name = "password_reset_complete"),
+    path('edit/', user_views.edit, name='edit'),
+    path('tinymce/', include('tinymce.urls'))
+]   
 
 urlpatterns += [
     # ... the rest of your URLconf goes here ...
