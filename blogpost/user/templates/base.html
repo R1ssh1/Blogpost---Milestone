@@ -115,14 +115,8 @@
                 {% endif %}
                 <button class="navbar-toggler h6" data-toggle="collapse" data-target="#collapseNav">
                     <span class="fas fa-bars text-light"></span>
-                </button>
-                
-                
-                
-                
+                </button>    
             </div>
-                    
-
             <div class="collapse navbar-collapse flex-grow-0" id="collapseNav">
                 <div class="navbar-nav ml-auto">
                     <a href="{% url 'user:user list' %}" class="nav-item nav-link text-light h6">Users</a>
@@ -156,10 +150,37 @@
     {% endblock body%}
 </body>
 <script>
+    // Function to toggle dark mode
     function toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-  }
+        const body = document.body;
+        const isDarkMode = !body.classList.contains('dark-mode');
+
+        // Toggle dark mode class on the body
+        body.classList.toggle('dark-mode', isDarkMode);
+
+        // Update the checkbox state based on the dark mode preference
+        const checkbox = document.querySelector('.checkbox');
+        checkbox.checked = isDarkMode;
+
+        // Store the user's preference in local storage
+        localStorage.setItem('darkMode', isDarkMode);
+    }
+
+    // Function to set initial dark mode state
+    function setInitialDarkMode() {
+        const savedDarkMode = localStorage.getItem('darkMode');
+        const body = document.body;
+
+        // Set dark mode if it was saved
+        body.classList.toggle('dark-mode', savedDarkMode === 'true');
+
+        // Update the checkbox state based on the dark mode preference
+        const checkbox = document.querySelector('.checkbox');
+        checkbox.checked = savedDarkMode === 'true';
+    }
+
+    // Call the function to set the initial dark mode state when the page loads
+    document.addEventListener('DOMContentLoaded', setInitialDarkMode);
 </script>
 
 </html>
