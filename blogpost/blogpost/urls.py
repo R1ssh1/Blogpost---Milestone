@@ -41,7 +41,8 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name = "password_reset_complete"),
     path('profile/edit/', user_views.edit, name='edit'),
-    path('tinymce/', include('tinymce.urls'))
+    path('tinymce/', include('tinymce.urls')),
+    path('about', user_views.about, name='about')
 ]   
 
 urlpatterns += [

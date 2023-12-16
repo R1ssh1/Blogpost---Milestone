@@ -40,6 +40,9 @@ def signup(request):
         form = SignupForm()
     return render(request, 'signuppage.html', {'form' : form})
 
+def about(request):
+    return render(request, 'about.html')
+
 def blogpost(request, slug):
     blog = Blog.objects.filter(slug=slug).first()
     context = {'blog': blog}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock title %}
+{% block head %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+        
+        p{
+            text-align: center;
+            font-size: 20px;
+        }
+        i{
+            font-size: 20px;
+        }
+        
+    </style>
+    {% endblock head %}
+
+{% block body %}
+
+<main>
+    <h1>About Us</h1>
+    <p>We are a team of passionate individuals who are dedicated to create a social media blogpost made especially for our students.<br/> We are committed to quality, innovation, and audience satisfaction.</p>
+
+    <img src="{% static 'Logo.jpg' %}" alt="Image of our team">
+    <br/><br/>
+
+    <p>Visit out instagram page to know more<br/><br/>
+        <a href="https://www.instagram.com/milestone_club_vitap?igshid=OGQ5ZDc2ODk2ZA%3D%3D"><i class="fa-brands fa-instagram" ></i></a>
+    </p>
+
+</main>
+
+{% endblock body %}
