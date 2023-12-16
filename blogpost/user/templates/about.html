@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static%}
 {% block title %}About Us{% endblock title %}
 {% block head %}
 
@@ -18,7 +19,7 @@
         }
         
     </style>
-    {% endblock head %}
+{% endblock head %}
 
 {% block body %}
 
@@ -26,7 +27,7 @@
     <h1>About Us</h1>
     <p>We are a team of passionate individuals who are dedicated to create a social media blogpost made especially for our students.<br/> We are committed to quality, innovation, and audience satisfaction.</p>
 
-    <img src="{% static 'Logo.jpg' %}" alt="Image of our team">
+    <img src="{% static "Logo.jpg" %}" alt="Image of our team">
     <br/><br/>
 
     <p>Visit out instagram page to know more<br/><br/>
