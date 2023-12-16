@@ -42,7 +42,8 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name = "password_reset_complete"),
     path('profile/edit/', user_views.edit, name='edit'),
     path('tinymce/', include('tinymce.urls')),
-    path('about', user_views.about, name='about')
+    path('about/', user_views.about, name='about'),
+    path('contact/', user_views.contact, name='contact')
 ]   
 
 urlpatterns += [
