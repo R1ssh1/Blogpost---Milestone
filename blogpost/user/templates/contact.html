@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        p.error {
+            color: red;
+        }
+
+        input.error, textarea.error {
+            border: 2px solid red;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./base.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./loginpage.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+
+    <form>
+        <center>
+            <br>
+            <h1>Contact us!</h1>
+            <p>Feel free to contact us and ease your doubts.</p>
+            <br>
+            
+
+            <table>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name"></td>
+                    <td><p id="demo1" class="error"></p></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email"></td>
+                    <td><p id="demo2" class="error"></p></td>
+                </tr>
+                <tr>
+                    <td><label for="mess">Message:</label></td>
+                    <td><textarea id="mess"></textarea></td>
+                    <td><p id="demo4" class="error"></p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" onclick="validateForm()">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+
+    <script>
+        function validateForm() {
+            let nameInput = document.getElementById("name");
+            let name = nameInput.value.trim();
+            let al1 = "";
+
+            if (name === "") {
+                al1 = "This field is required";
+                nameInput.classList.add("error");
+            } else {
+                nameInput.classList.remove("error");
+            }
+
+            document.getElementById("demo1").innerHTML = al1;
+
+            let emailInput = document.getElementById("email");
+            let email = emailInput.value.trim();
+            let al2 = "";
+
+            if (email === "") {
+                al2 = "This field is required";
+                emailInput.classList.add("error");
+            } else {
+                emailInput.classList.remove("error");
+            }
+
+            document.getElementById("demo2").innerHTML = al2;
+            
+            let messInput = document.getElementById("mess");
+            let mess = messInput.value.trim();
+            let al4 = "";
+
+            if (mess === "") {
+                al4 = "This field is required";
+                messInput.classList.add("error");
+            } else {
+                messInput.classList.remove("error");
+            }
+
+            document.getElementById("demo4").innerHTML = al4;
+        }
+    </script>
+</body>
+
+</html>
