@@ -43,6 +43,9 @@ def signup(request):
 def about(request):
     return render(request, 'about.html')
 
+def contact(request):
+    return render(request, 'contact.html')
+
 def blogpost(request, slug):
     blog = Blog.objects.filter(slug=slug).first()
     context = {'blog': blog}
