@@ -71,9 +71,12 @@ def create_blog(request):
 class CreateBlog(CreateView):
     model = Blog
     fields = ['title', 'content']
+    
     def form_valid(self, form):
         form.instance.user_name = self.request.user
         template_name = 'blog_form.html'
+        if not self.request.user.is_authenticated:
+            return redirect('login')
         return super().form_valid(form)
 
 
