@@ -40,12 +40,16 @@ h1 {
 form {
     max-width: 450px;
     margin: 0 auto;
-    background-color: #050505;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+form.dark-mode{
+    background-color: #0c0808;
+}
+form.light-mode{
+    background-color: #fff;
+}
 label {
     display: block;
     text-align: left;

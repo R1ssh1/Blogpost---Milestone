@@ -155,8 +155,9 @@
         const body = document.body;
         const isDarkMode = !body.classList.contains('dark-mode');
 
-        // Toggle dark mode class on the body
+        // Toggle between light and dark mode classes
         body.classList.toggle('dark-mode', isDarkMode);
+        body.classList.toggle('light-mode', !isDarkMode);
 
         // Update the checkbox state based on the dark mode preference
         const checkbox = document.querySelector('.checkbox');
@@ -165,7 +166,6 @@
         // Store the user's preference in local storage
         localStorage.setItem('darkMode', isDarkMode);
     }
-
     // Function to set initial dark mode state
     function setInitialDarkMode() {
         const savedDarkMode = localStorage.getItem('darkMode');
