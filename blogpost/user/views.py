@@ -79,28 +79,26 @@ class CreateBlog(CreateView):
             return redirect('login')
         return super().form_valid(form)
 
-
+@login_required
 def update_blog(request, id):
     blog = Blog.objects.get(serial_num=id)
     form = BlogForm(request.POST or None, instance=blog)
     if form.is_valid():
         form.save()
-        return redirect('blogpage')
+        messages.success(request,"Blog has been succesfully updated!")
+        return redirect('blogpost',blog.slug)
     context = {
         'form':form,
         'blog':blog
     }
     return render(request, 'blog_form.html', context)
 
+@login_required
 def delete_blog(request, id):
     blog = Blog.objects.get(serial_num=id)
-    if request.method == 'POST':
-        blog.delete()
-        return redirect('blogpage')
-    context={
-        'blog':blog
-    }
-    return render(request, 'blog_delete.html', context)
+    blog.delete()
+    messages.success(request,"Blog has been succesfully deleted!")
+    return redirect('userblogs')
 
 @login_required
 def edit(request):

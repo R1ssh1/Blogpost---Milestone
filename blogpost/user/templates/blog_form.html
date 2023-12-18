@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+
+{% block title %}Edit Blog{% endblock title %}
+{% block head %}
+
+<style>
+    
+</style>
+
+{% endblock head %}
+
+{% block body %}
+<form method="POST" style="max-width:90%;">
+    
+    {% csrf_token %}
+    {{ form.media }}
+    {{form}}
+
+    <button type="Submit">Submit</button>
+</form>
+{% endblock body %}
