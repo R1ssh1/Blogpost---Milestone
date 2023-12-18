@@ -114,3 +114,9 @@ def edit(request):
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile) 
     return render(request, 'edit.html', {"user_form":user_form, "profile_form":profile_form})
+
+@login_required
+def user_blogs(request):
+    current_user = request.user
+    blogs = Blog.objects.filter(user_name=current_user)
+    return render(request, 'user/user_blogs.html', {'blogs':blogs})

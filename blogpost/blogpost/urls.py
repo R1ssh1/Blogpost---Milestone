@@ -43,7 +43,8 @@ urlpatterns = [
     path('profile/edit/', user_views.edit, name='edit'),
     path('tinymce/', include('tinymce.urls')),
     path('about/', user_views.about, name='about'),
-    path('contact/', user_views.contact, name='contact')
+    path('contact/', user_views.contact, name='contact'),
+    path('user_blogs/', user_views.user_blogs, name='userblogs')
 ]   
 
 urlpatterns += [

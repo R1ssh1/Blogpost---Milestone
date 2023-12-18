@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Your Blogs{% endblock title %}
+
+{% block body %}
+<h1>These are your blogs</h1>
+{% for blog in blogs %}
+<a href="../blogpage/{{blog.slug}}/">{{blog.title}}</a>By :  {{blog.user_name}}
+<br>
+{{blog.content | slice:75 | safe}}...
+<br>
+<br>
+{% endfor %}
+{% endblock body %}

@@ -126,8 +126,8 @@
                     {% if user.is_authenticated %}
                         <a href="{% url 'logout'%}" class="nav-item nav-link text-light h6">Logout</a>
                         <a href="{% url 'change_password'%}" class="nav-item nav-link text-light h6">Change Password</a>
-                        <a href="{% url 'createblog' %}" class="nav-item nav-link text-light h6">Create
-                        Blog</a>             
+                        <a href="{% url 'createblog' %}" class="nav-item nav-link text-light h6">Create Blog</a>             
+                        <a href="{% url 'userblogs'%}" class="nav-item nav-link text-light h6">Your Blogs</a>
                     {% endif %}
                     
                 </div>
