@@ -6,8 +6,85 @@
 {% for blog in blogs %}
 <a href="{{blog.slug}}/">{{blog.title}}</a>By :  {{blog.user_name}}
 <br>
-{{blog.content | slice:75 | safe}}...
-<br>
-<br>
+{{blog.content | slice:75 | safe}}
 {% endfor %}
+<br>
+<br>
+
+<div >
+<nav aria-label="...">
+    <ul class="pagination justify-content-center"  >
+
+{% if blogs.has_previous %}
+<li class="page-item" style="
+margin-left: 0px;
+margin-right: 0px;
+">
+    <a class="page-link" href="?page={{ blogs.previous_page_number }}">Previous</a>
+  </li>
+{% else %}
+      <li class="page-item disabled" style="
+      margin-left: 0px;
+      margin-right: 0px;
+  ">
+        <span class="page-link">Previous</span>
+      </li>
+{% endif %}
+<li class="page-item" style="
+margin-left: 0px;
+margin-right: 0px;
+">
+    <a class="page-link" href="?page=1" aria-label="First">
+      <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5"/>
+      </svg></span>
+    </a>
+  </li>
+  {% if blogs.has_previous %}
+      <li class="page-item" style=" 
+      margin-left: 0px;
+      margin-right: 0px;
+  "><a class="page-link" href="?page={{ blogs.previous_page_number }}">{{blogs.previous_page_number}}</a></li>
+      {% endif %}
+      <li class="page-item active" aria-current="page" style="
+      margin-left: 0px;
+      margin-right: 0px;
+  ">
+        <span class="page-link">{{blogs.number}}</span>
+      </li>
+      <li class="page-item" style="
+      margin-left: 0px;
+      margin-right: 0px;
+  ">  {% if blogs.has_next %}
+  <li class="page-item" style=" 
+  margin-left: 0px;
+  margin-right: 0px;
+"><a class="page-link" href="?page={{ blogs.next_page_number }}">{{blogs.next_page_number}}</a></li>
+  {% endif %}
+        <a class="page-link" href="?page={{ blogs.paginator.num_pages }}" aria-label="Last">
+          <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5"/>
+          </svg></span>
+        </a>
+      </li>
+{% if blogs.has_next %}
+      <li class="page-item" style="
+      margin-left: 0px;
+      margin-right: 0px;
+  ">
+        <a class="page-link" href="?page={{ blogs.next_page_number }}">Next</a>
+      </li>
+{% else %}
+<li class="page-item disabled" style="
+margin-left: 0px;
+margin-right: 0px;
+">
+    <span class="page-link">Next</span>
+  </li>
+{% endif %}
+
+    </ul>
+    
+  </nav>
+</div>
 {% endblock body %}

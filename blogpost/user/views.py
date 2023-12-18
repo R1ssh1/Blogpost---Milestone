@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
+from django.core.paginator import Paginator
 # Create your views here.
 
 def homepage(request):
@@ -53,6 +54,11 @@ def blogpost(request, slug):
 
 def blogpage(request):
     blogs = Blog.objects.all()
+    
+    paginator = Paginator(blogs, 2)
+    page = request.GET.get('page')
+    blogs = paginator.get_page(page)
+    
     context = {'blogs': blogs}
     return render(request,'blogpage.html',context)
 
