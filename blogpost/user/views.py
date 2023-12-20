@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Blog, Profile
+from .models import *
 from django.contrib.auth.models import User
 from django.template import loader
-from .forms import SignupForm, BlogForm, UserEditForm, ProfileEditForm
+from .forms import *
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
 from django.core.paginator import Paginator
@@ -54,8 +54,15 @@ def blogpost(request, slug):
     liked = False
     if blog.likes.filter(id=request.user.id).exists():
         liked = True
-        
-    context = {'blog': blog, "total_likes" : total_likes, "liked" : liked}
+    if request.method =="POST":
+        form = CommentForm(data=request.POST)
+        new_comment = form.save(commit=False)
+        new_comment.blog = blog
+        new_comment.save()
+        return HttpResponseRedirect(reverse('blogpost', args=[str(blog.slug)]))
+    else:
+        form = CommentForm()
+    context = {'blog': blog, "total_likes" : total_likes, "liked" : liked, 'form':form}
     return render(request, 'blogcontent.html',context)
 
 def blogpage(request):

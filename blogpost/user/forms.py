@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Blog, Profile
+from .models import *
 from tinymce.widgets import TinyMCE
 
 
@@ -24,7 +24,11 @@ class BlogForm(forms.ModelForm):
         model = Blog
         fields = ['title', 'content']
         
-
+class CommentForm(forms.ModelForm):
+    
+    class Meta:
+        model = Comment
+        fields = ['body']
 
 class SignupForm(UserCreationForm):
     email = forms.EmailField()

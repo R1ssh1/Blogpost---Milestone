@@ -24,8 +24,6 @@ class Blog(models.Model):
 
     def totalLikes(self):
         return self.likes.count()
-
-        
     def __str__(self):
         return self.title
     def _get_unique_slug(self):
@@ -45,3 +43,10 @@ class Blog(models.Model):
     def get_absolute_url(self):
         return reverse("blogpost", args=[str(self.slug)])
     
+class Comment(models.Model):
+    blog = models.ForeignKey(Blog, related_name="comments", on_delete=models.CASCADE, default=1)
+    body = RichTextField()
+    time = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    def __str__(self):
+        return '%s - %s' % (self.blog.title, self.user.username)
