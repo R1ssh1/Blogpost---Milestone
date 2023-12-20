@@ -3,8 +3,22 @@
 {% block body %}
 <h1>{{blog.title}}</h1>
 
-Blog by {{blog.user_name}} Uploaded on {{blog.time}}
+Blog by {{blog.user_name}} Uploaded on {{blog.time}} ID {{blog.serial_num}} | {{blog.pk}}
 <br>
 <br>
 {{blog.content | safe}}
+<br>
+<hr>
+<br>
+<form action = "{% url "like_blog" blog.serial_num %}" method="POST">
+{% csrf_token %}
+{% if liked %}
+<button type='submit', name="serial_num", value="{{blog.serial_num}}", class="btn btn-danger btn-small">
+    {{total_likes}}</button>
+{% else %}
+<button type='submit', name="serial_num", value="{{blog.serial_num}}", class="btn btn-primary btn-small">
+{{total_likes}}</button>
+{% endif %}
+
+</form>
 {% endblock body %}

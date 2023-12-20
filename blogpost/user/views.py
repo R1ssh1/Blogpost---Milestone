@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Blog, Profile
 from django.contrib.auth.models import User
 from django.template import loader
@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
 from django.core.paginator import Paginator
+from django.urls import reverse
 # Create your views here.
 
 def homepage(request):
@@ -49,7 +50,12 @@ def contact(request):
 
 def blogpost(request, slug):
     blog = Blog.objects.filter(slug=slug).first()
-    context = {'blog': blog}
+    total_likes = blog.totalLikes()
+    liked = False
+    if blog.likes.filter(id=request.user.id).exists():
+        liked = True
+        
+    context = {'blog': blog, "total_likes" : total_likes, "liked" : liked}
     return render(request, 'blogcontent.html',context)
 
 def blogpage(request):
@@ -125,3 +131,15 @@ def user_blogs(request):
     current_user = request.user
     blogs = Blog.objects.filter(user_name=current_user)
     return render(request, 'user/user_blogs.html', {'blogs':blogs})
+@login_required
+def LikeView(request, id):
+    blog = get_object_or_404(Blog, serial_num=request.POST.get('serial_num'))
+    liked = False
+    if blog.likes.filter(id=request.user.id).exists():
+        liked = False
+        blog.likes.remove(request.user)
+    else:
+        blog.likes.add(request.user)
+        liked = True
+
+    return HttpResponseRedirect(reverse('blogpost', args=[str(blog.slug)]))

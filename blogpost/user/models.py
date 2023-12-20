@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 from django.urls import reverse
 from tinymce.models import HTMLField
+from blogpost import settings
 # Create your models here.
 
 class Profile(models.Model):
@@ -19,6 +20,12 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=150, unique=True, blank=True)
     time = models.DateTimeField(auto_now_add=True)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    likes = models.ManyToManyField(User, related_name='blogs_liked', blank=True)
+
+    def totalLikes(self):
+        return self.likes.count()
+
+        
     def __str__(self):
         return self.title
     def _get_unique_slug(self):

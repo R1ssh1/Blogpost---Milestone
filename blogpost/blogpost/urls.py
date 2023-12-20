@@ -44,7 +44,8 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('about/', user_views.about, name='about'),
     path('contact/', user_views.contact, name='contact'),
-    path('user_blogs/', user_views.user_blogs, name='userblogs')
+    path('user_blogs/', user_views.user_blogs, name='userblogs'),
+    path('like/<int:id>', user_views.LikeView, name='like_blog')
 ]   
 
 urlpatterns += [
