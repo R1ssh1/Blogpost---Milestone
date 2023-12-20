@@ -54,12 +54,13 @@ def blogpost(request, slug):
 
 def blogpage(request):
     blogs = Blog.objects.all()
-    
-    paginator = Paginator(blogs, 2)
+    paginator = Paginator(blogs, 3)
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
-    
-    context = {'blogs': blogs}
+    if page == None:
+        page = 1
+    elided_pages = paginator.get_elided_page_range(number=page, on_each_side=2, on_ends=0)
+    context = {'blogs': blogs, 'elided_pages' : elided_pages}
     return render(request,'blogpage.html',context)
 
 @login_required
