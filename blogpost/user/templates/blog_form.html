@@ -10,7 +10,7 @@
 {% endblock head %}
 
 {% block body %}
-<form method="POST" style="max-width:90%;">
+<form method="POST" style="max-width:90%;" enctype='multipart/form-data'>
     
     {% csrf_token %}
     {{ form.media }}

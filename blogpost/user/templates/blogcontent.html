@@ -26,6 +26,7 @@ Blog by {{blog.user_name.username}} Uploaded on {{blog.time}} ID {{blog.serial_n
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample-top" aria-expanded="false" aria-controls="collapseExample">
     Add Comment
 </button>
+{% if user.is_authenticated %}
 <div class="collapse" id="collapseExample-top">
     <div class="card card-body">
         <form method="POST" style="max-width:90%;">
@@ -38,6 +39,14 @@ Blog by {{blog.user_name.username}} Uploaded on {{blog.time}} ID {{blog.serial_n
         </form>
     </div>
   </div>
+  {% else %}
+  <div class="collapse" id="collapseExample-top">
+    <div class="card card-body">
+        You must login to add a comment!
+            <a href="{% url 'login' %}" class="btn btn-warning">Login</a>
+    </div>
+  </div>
+  {% endif %}
 <br>
 {% if not blog.comments.all%}
 {%else%}

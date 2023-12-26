@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from django.contrib.auth.models import User
@@ -66,8 +67,13 @@ def blogpost(request, slug):
     return render(request, 'blogcontent.html',context)
 
 def blogpage(request):
-    blogs = Blog.objects.all()
-    paginator = Paginator(blogs, 3)
+    if request.method == "POST":
+        sort_type = request.POST.get('sort')
+        order = request.POST.get('order')
+        blogs = Blog.objects.all().order_by(order+sort_type)
+    else:
+        blogs = Blog.objects.all()
+    paginator = Paginator(blogs, 20)
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
     if page == None:
@@ -90,7 +96,7 @@ def create_blog(request):
 
 class CreateBlog(CreateView):
     model = Blog
-    fields = ['title', 'content']
+    fields = ['title', 'image', 'description','content']
     
     def form_valid(self, form):
         form.instance.user_name = self.request.user
@@ -102,11 +108,16 @@ class CreateBlog(CreateView):
 @login_required
 def update_blog(request, id):
     blog = Blog.objects.get(serial_num=id)
-    form = BlogForm(request.POST or None, instance=blog)
-    if form.is_valid():
-        form.save()
-        messages.success(request,"Blog has been succesfully updated!")
-        return redirect('blogpost',blog.slug)
+    if request.method=="POST":
+        form = BlogForm(instance=blog, data=request.POST, files=request.FILES)
+        if form.is_valid():
+            
+            
+            form.save()
+            messages.success(request,"Blog has been succesfully updated!")
+            return redirect('blogpost',blog.slug)
+    else:
+        form = BlogForm(instance=blog)
     context = {
         'form':form,
         'blog':blog

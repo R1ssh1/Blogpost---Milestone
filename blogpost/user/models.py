@@ -21,7 +21,8 @@ class Blog(models.Model):
     time = models.DateTimeField(auto_now_add=True)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     likes = models.ManyToManyField(User, related_name='blogs_liked', blank=True)
-
+    image= models.ImageField(default='blogpic.jpg', upload_to='blog_thumbnails')
+    description = models.CharField(max_length=40, default="default blog description...")
     def totalLikes(self):
         return self.likes.count()
     def __str__(self):

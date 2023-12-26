@@ -2,17 +2,53 @@
 {% block title %}Blog Page{% endblock title %}
 
 {% block body %}
+{% load mathfilters %}
 <h1>Welcome to the Milestone Blog</h1>
-
-
+<form method="POST">
+  {% csrf_token %}
+      <label class="col-xs-3 control-label"><strong></strong>&nbsp;Order By</label>
+      <div class="col-xs-2">
+          <select class="form-select" style="width:auto;" id="sort" name="sort">
+              <option value="time">Time
+              </option>
+              <option value="likes">Likes
+              </option>
+              <option value="title">Name
+              </option>
+          </select>
+      </div>
+      <div class="col-xs-2">
+        <select class="form-select" style="width:auto;" id="order" name="order">
+            <option value="">Ascending
+            </option>
+            <option value="-">Descending
+            </option>
+        </select>
+    </div>
+      <button type="Submit">Sort</button>
+    </form>
+    <hr>
+<div class="row row-cols-1 row-cols-md-4 g-4">
 {% for blog in blogs %}
-<a href="{{blog.slug}}/">{{blog.title}}</a>By :  {{blog.user_name}}
-<br>
-{{blog.content | slice:70 | safe}}
-<br>
 
-<br>
+  <div class="col">
+    <div class="card">
+
+      <img style= "object-fit: contain;
+      width: 100%;
+      height: 00%;"
+      src="{{blog.image.url}}" class="card-img-top"  alt="...">
+
+      <div class="card-body">
+        Uploaded by {{blog.user_name}} on {{blog.time.date}}
+        <h5 style="max-width:100%;"class="card-title">{{blog.title}}</h5>
+        <p class="card-text"> </p>
+      </div>
+    </div>
+  </div>
+
 {% endfor %}
+</div>
 <br>
 <br>
 

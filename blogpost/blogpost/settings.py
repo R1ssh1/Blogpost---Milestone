@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'django_quill',
     'tinymce',
-    'ckeditor'
+    'ckeditor',
+    'mathfilters'
 ]
 
 MIDDLEWARE = [
