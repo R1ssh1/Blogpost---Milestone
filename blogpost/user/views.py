@@ -14,7 +14,11 @@ from django.urls import reverse
 # Create your views here.
 
 def homepage(request):
-    return render(request, 'indexpage.html')
+    blogs = Blog.objects.all().order_by('time')[:5]
+    context = {
+        'blogs' : blogs
+    }
+    return render(request, 'indexpage.html', context)
 
 def loginpage(request):
     return render(request, 'loginpage.html')
