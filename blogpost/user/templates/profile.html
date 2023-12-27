@@ -1,18 +1,27 @@
 {% extends 'base.html' %}
+
 {% block title %}Profile{% endblock title %}
+
     {% block body %}
-    <h1>Your Profile</h1>
-    <div class="d-flex flex-row justify-content-center">
-    <img src="{{ user.profile.image.url }}">
+    <h1 class="text-primary px-3"><b><u>Profile</u></b></h1>
+    <div class="row py-5">
+        <div class="col-8">
+            <ul class="h6 text-start" style="list-style: none;">
+                <li class="py-2">Username: {{ user.username }}</li>
+                <li class="py-2">Email: {{ user.email }}</li>
+                <li class="py-2">ID: {{ user.id }}</li>
+            </ul>
+        </div>
+        <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+            <img src="{{ user.profile.image.url }}" class="mb-3" style="height: 100%;width: 50%;">
+        </div>  
     </div>
-    <ul>
-        <li>Username: {{ user.username }}</li>
-        <li>Email: {{ user.email }}</li>
-        <li>ID: {{ user.id }}</li>
-        
-    </ul>
-    <h2>Description</h2>
-    {{user.profile.description}}
+    <div class="text-center pt-3">
+        <p>{{user.profile.description}}</p>
+    </div>
     <br>
-    <a class="btn btn-dark" href="{% url 'edit' %}" role="button" >Edit Profile</a>
+    <div class="text-center mt-5 pt-5">
+        <a class="btn btn-danger" style="width:130px;" href="{% url 'edit' %}" role="button" >Edit Profile</a>
+    </div>
+    
     {% endblock %}
