@@ -26,3 +26,11 @@ Then open the localhost website using the link given in the Command Prompt windo
 http://127.0.0.1:8000/
 
 in your browser
+
+Github: https://github.com/R1ssh1/Blogpost-Milestone
+Doc links:
+https://getbootstrap.com/docs/5.3/getting-started/introduction/
+https://docs.djangoproject.com/en/5.0/
+
+
+
