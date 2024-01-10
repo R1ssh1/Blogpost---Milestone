@@ -24,8 +24,10 @@ Anyone can create an account and upload a blog to talk about whatever they want 
 	 
 	 The project should now be running on localhost and it can be accessed using the link that appears in the terminal or using [this link for localhost](http://127.0.0.1:8000/)
 
-## Stack
-<a href="https://www.python.org/"><img src="download.jpeg" height=75px width=75px ></img></a> <a href="https://www.djangoproject.com/"><img src="django.png" height=75px width=75px ></img> </a> <a href="https://www.sqlite.org/"> <img src="download (1).jpeg" height=75px width=75px></img> </a> <a href="https://www.tiny.cloud/"> <img src="download (1).png" height=75px width=75px ></img> </a> <a href="https://ckeditor.com/"><img src="download (2).png" height=75px width=75px></img><a/> <a href="https://getbootstrap.com/"> <img src="download (2).jpeg" height=75px width=75px></img> </a>
+## Main Stack
+<a href="https://www.python.org/"><img src="download.jpeg" height=75px width=75px ></img></a> <a href="https://www.djangoproject.com/"><img src="django.png" height=75px width=75px ></img> </a> <a href="https://www.sqlite.org/"> <img src="download (1).jpeg" height=75px width=100px></img> </a> 
+### Other dependencies
+<a href="https://www.tiny.cloud/"> <img src="download (1).png" height=75px width=75px ></img> </a> <a href="https://ckeditor.com/"><img src="download (2).png" height=75px width=75px></img><a/> <a href="https://getbootstrap.com/"> <img src="download (2).jpeg" height=75px width=75px></img> </a>
 
 ## About Milestone Club, VIT AP University
 
