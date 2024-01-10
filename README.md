@@ -1,5 +1,5 @@
 # Blogpost-Milestone
-<img src="Logo.jpg" height=100px width=100px>
+<img src="Logo.jpg" height=100px width=100px></img>
 ## About The Project :information_source:
 The blogpost app is created to allow the students of VIT-AP to communicate online and write about whatever they want and bring a sense of community within the students.
 Anyone can create an account and upload a blog to talk about whatever they want to. 
