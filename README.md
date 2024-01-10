@@ -24,7 +24,12 @@ Anyone can create an account and upload a blog to talk about whatever they want 
 	 
 	 The project should now be running on localhost and it can be accessed using the link that appears in the terminal or using [this link for localhost](http://127.0.0.1:8000/)
 
+## Stack
+<img src="https://images.app.goo.gl/GVKnJyT9Y6hSAw1GA">
 
+## About Milestone Club, VIT AP University
+
+The Milestone Club at VIT AP University is a student-driven organization aimed at providing a platform for students to explore and develop their skills in various technological domains. We focus on organizing collaborative projects to enhance practical knowledge and encourage innovation.
 
 Github: https://github.com/R1ssh1/Blogpost-Milestone
 Doc links:
