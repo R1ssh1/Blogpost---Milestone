@@ -25,7 +25,7 @@ Anyone can create an account and upload a blog to talk about whatever they want 
 	 The project should now be running on localhost and it can be accessed using the link that appears in the terminal or using [this link for localhost](http://127.0.0.1:8000/)
 
 ## Stack
-<img src="https://images.app.goo.gl/GVKnJyT9Y6hSAw1GA">
+<img src="download.jpeg" height=75px width=75px href="https://www.python.org/"></img> <img src="django.png" height=75px width=75px href="https://www.djangoproject.com/"></img> <img src="download (1).jpeg" height=75px width=75px href="https://www.sqlite.org/"></img> <img src="download (1).png" height=75px width=75px href="https://www.tiny.cloud/"></img> <img src="download (2).png" height=75px width=75px href="https://ckeditor.com/"></img> <img src="download (2).jpeg" height=75px width=75px href="https://getbootstrap.com/"></img>
 
 ## About Milestone Club, VIT AP University
 
