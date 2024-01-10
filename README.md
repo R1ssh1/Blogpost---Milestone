@@ -1,5 +1,6 @@
+
 # Blogpost-Milestone
-<img src="Logo.jpg" height=100px width=100px></img>
+<img src="Logo.jpg" height=200px width=200px></img>
 ## About The Project :information_source:
 The blogpost app is created to allow the students of VIT-AP to communicate online and write about whatever they want and bring a sense of community within the students.
 Anyone can create an account and upload a blog to talk about whatever they want to. 
@@ -44,10 +45,10 @@ We extend our gratitude to the contributors and members of the Milestone Club wh
 ### Follow Us on Instagram
 For updates, events, and highlights from the Milestone Club, follow us on [Instagram](https://www.instagram.com/milestone_club_vitap/).
 
-## Contribution Guidelines
+## Contribution Guidelines :page_facing_up:
 Please read our Contribution Guidelines before contributing to this project.
 
-## License
+## License :clipboard:
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
