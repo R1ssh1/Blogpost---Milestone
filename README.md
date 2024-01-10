@@ -29,14 +29,25 @@ Anyone can create an account and upload a blog to talk about whatever they want 
 ### Other dependencies
 <a href="https://www.tiny.cloud/"> <img src="download (1).png" height=75px width=75px ></img> </a> <a href="https://ckeditor.com/"><img src="download (2).png" height=75px width=75px></img><a/> <a href="https://getbootstrap.com/"> <img src="download (2).jpeg" height=75px width=75px></img> </a>
 
-## About Milestone Club, VIT AP University
 
+## About Milestone Club, VIT AP University
 The Milestone Club at VIT AP University is a student-driven organization aimed at providing a platform for students to explore and develop their skills in various technological domains. We focus on organizing collaborative projects to enhance practical knowledge and encourage innovation.
 
-Github: https://github.com/R1ssh1/Blogpost-Milestone
-Doc links:
-https://getbootstrap.com/docs/5.3/getting-started/introduction/
-https://docs.djangoproject.com/en/5.0/
+### Project Background
+This project was initiated and developed by members of the Milestone Club at VIT AP University. Our club is dedicated to fostering innovation, collaboration, and learning among students interested in technology and software development.
 
+
+
+### Project Contributors
+We extend our gratitude to the contributors and members of the Milestone Club who participated in the development of this project. Their dedication and efforts have been instrumental in bringing this project to fruition.
+
+### Follow Us on Instagram
+For updates, events, and highlights from the Milestone Club, follow us on Instagram.
+
+## Contribution Guidelines
+Please read our Contribution Guidelines before contributing to this project.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 
