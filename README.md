@@ -1,6 +1,6 @@
 # Blogpost-Milestone
 
-## About The Project :information_source: :grey_exclamation:
+## About The Project :information_source:
 The blogpost app is created to allow the students of VIT-AP to communicate online and write about whatever they want and bring a sense of community within the students.
 Anyone can create an account and upload a blog to talk about whatever they want to. 
 
@@ -15,7 +15,7 @@ Anyone can create an account and upload a blog to talk about whatever they want 
 
  - Password recovery system that allows the user to reset their password in case they forget it.
 
-## Setup
+## Setup :gear:
  1. Clone the repository using  : 
 		`git clone https://github.com/R1ssh1/Blogpost-Milestone`
  2. Open a terminal and make sure that the **Blogpost-Milestone/blogpost** directory is open
@@ -30,3 +30,6 @@ Github: https://github.com/R1ssh1/Blogpost-Milestone
 Doc links:
 https://getbootstrap.com/docs/5.3/getting-started/introduction/
 https://docs.djangoproject.com/en/5.0/
+
+
+
