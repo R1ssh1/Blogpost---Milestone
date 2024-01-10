@@ -42,7 +42,7 @@ This project was initiated and developed by members of the Milestone Club at VIT
 We extend our gratitude to the contributors and members of the Milestone Club who participated in the development of this project. Their dedication and efforts have been instrumental in bringing this project to fruition.
 
 ### Follow Us on Instagram
-For updates, events, and highlights from the Milestone Club, follow us on Instagram.
+For updates, events, and highlights from the Milestone Club, follow us on [Instagram](https://www.instagram.com/milestone_club_vitap/).
 
 ## Contribution Guidelines
 Please read our Contribution Guidelines before contributing to this project.
